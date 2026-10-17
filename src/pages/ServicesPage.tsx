@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Clock, ArrowRight, Search, SlidersHorizontal, Sparkles } from 'lucide-react';
+import { Clock, 
+  // ArrowRight,
+   Search, SlidersHorizontal, Sparkles } from 'lucide-react';
 import { serviceCategories } from '../data';
 import { useInView } from '../hooks/useInView';
 import { useSalon } from '../context/SalonContext';
