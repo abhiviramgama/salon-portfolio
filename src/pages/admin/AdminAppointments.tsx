@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, Check, X, Clock, Calendar, AlertCircle } from 'lucide-react';
+import { Search, Check, X, Clock, Calendar } from 'lucide-react';
 import { useSalon } from '../../context/SalonContext';
 import type { AppointmentStatus } from '../../types';
 

@@ -127,9 +127,7 @@ export default function StylistsPage() {
                     {stylist.workingHours && (
                       <div className="flex items-center gap-1.5 text-xs font-sans text-[#A9A197] mb-4 bg-[#151412] p-2 border border-[#C5A572]/10">
                         <Clock size={12} className="text-[#C5A572]" />
-                        <span>Shift: {stylist.workingHours.start} – {stylist.workingHours.end}</span>
-                        <span className="text-[#C5A572]/40">|</span>
-                        <span className="capitalize">{stylist.workingHours.days.slice(0, 3).join(', ')}...</span>
+                        <span>Hours: {stylist.workingHours}</span>
                       </div>
                     )}
 

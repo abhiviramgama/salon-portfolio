@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { NavLink, Outlet, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   LayoutDashboard, Calendar, Users, Scissors,
-  Settings, LogOut, Menu, X, ChevronRight, Bell, Shield, Lock, ArrowRight
+  Settings, LogOut, Menu, X, ChevronRight, Lock, ArrowRight
 } from 'lucide-react';
 import { useSalon } from '../context/SalonContext';
 

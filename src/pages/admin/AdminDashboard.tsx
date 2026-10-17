@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
-  Calendar, Users, DollarSign, CheckCircle,
-  AlertCircle, ArrowRight, Eye, Scissors, Clock
+  Calendar, Users, DollarSign,
+  AlertCircle, ArrowRight, Scissors, Clock
 } from 'lucide-react';
 import { useSalon } from '../../context/SalonContext';
 

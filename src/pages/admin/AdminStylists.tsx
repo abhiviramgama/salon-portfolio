@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Users, Clock, Star, Edit3, Check, X } from 'lucide-react';
+import { Clock, Star, Edit3, Check, X } from 'lucide-react';
 import { useSalon } from '../../context/SalonContext';
 
 export default function AdminStylists() {

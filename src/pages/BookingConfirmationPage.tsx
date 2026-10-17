@@ -1,10 +1,11 @@
 import { useLocation, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CheckCircle, Calendar, Clock, User, Scissors, ArrowRight } from 'lucide-react';
-import { services, stylists } from '../data';
+import { useSalon } from '../context/SalonContext';
 
 export default function BookingConfirmationPage() {
   const { state } = useLocation();
+  const { services, stylists } = useSalon();
 
   if (!state?.booking) return <Navigate to="/book" replace />;
 
@@ -21,7 +22,7 @@ export default function BookingConfirmationPage() {
 
   return (
     <>
-      <title>Booking Confirmed — BestSalon</title>
+      <title>Booking Confirmed — ÉLORA SALON</title>
 
       <div className="min-h-screen bg-[#111110] flex items-center justify-center px-4 pt-24 pb-16">
         <div className="max-w-lg w-full text-center">

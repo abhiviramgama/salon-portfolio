@@ -26,7 +26,7 @@ interface SalonContextType {
   deleteService: (id: string) => void;
   toggleServiceAvailability: (id: string) => void;
   updateStylist: (id: string, updates: Partial<Stylist>) => void;
-  addBooking: (bookingData: Omit<Booking, 'id' | 'createdAt'>) => Booking;
+  addBooking: (bookingData: Omit<Booking, 'id' | 'createdAt' | 'status' | 'reference'> & Partial<Pick<Booking, 'status' | 'reference'>>) => Booking;
   cancelBooking: (id: string) => { success: boolean; message: string };
   updateBookingStatus: (id: string, status: AppointmentStatus) => void;
   getAvailableSlots: (date: string, stylistId?: string) => { time: string; available: boolean }[];
@@ -152,8 +152,12 @@ export function SalonProvider({ children }: { children: React.ReactNode }) {
     setStylists(prev => prev.map(st => (st.id === id ? { ...st, ...updates } : st)));
   };
 
-  const addBooking = (bookingData: Omit<Booking, 'id' | 'createdAt'>): Booking => {
+  const addBooking = (
+    bookingData: Omit<Booking, 'id' | 'createdAt' | 'status' | 'reference'> & Partial<Pick<Booking, 'status' | 'reference'>>
+  ): Booking => {
     const newBooking: Booking = {
+      status: 'pending',
+      reference: `ELORA-${Math.floor(1000 + Math.random() * 9000)}`,
       ...bookingData,
       id: `BK-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`,
       createdAt: new Date().toISOString(),

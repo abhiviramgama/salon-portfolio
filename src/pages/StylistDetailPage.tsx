@@ -99,7 +99,7 @@ export default function StylistDetailPage() {
                 <div className="mb-6 p-3 bg-[#201E1A] border border-[#C5A572]/20 flex items-center gap-3 text-xs font-sans text-[#A9A197]">
                   <Calendar size={14} className="text-[#C5A572]" />
                   <span>
-                    <strong className="text-[#F7F3EC]">Regular Shifts:</strong> {stylist.workingHours.days.map(d => d.slice(0, 3)).join(', ')} ({stylist.workingHours.start} – {stylist.workingHours.end})
+                    <strong className="text-[#F7F3EC]">Working hours:</strong> {stylist.workingHours}
                   </span>
                 </div>
               )}

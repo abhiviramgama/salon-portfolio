@@ -5,7 +5,7 @@ import { serviceCategories } from '../../data';
 import type { Service, ServiceCategory } from '../../types';
 
 export default function AdminServices() {
-  const { services, updateServicePrice, updateService, addService, deleteService, toggleServiceAvailability, settings } = useSalon();
+  const { services, updateServicePrice, addService, deleteService, toggleServiceAvailability, settings } = useSalon();
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   
