@@ -54,7 +54,7 @@ export default function App() {
               <Route path="gallery" element={<GalleryPage />} />
               <Route path="book" element={<BookingPage />} />
               <Route path="booking-confirmation" element={<BookingConfirmationPage />} />
-              {/* <Route path="contact" element={<ContactPage />} /> */}
+              <Route path="contact" element={<ContactPage />} />
             </Route>
 
             {/* Admin Management Hub */}
