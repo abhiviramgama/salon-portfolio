@@ -74,5 +74,5 @@ export default function App() {
         </Suspense>
       </BrowserRouter>
     </SalonProvider>
-  );
+ );
 }
