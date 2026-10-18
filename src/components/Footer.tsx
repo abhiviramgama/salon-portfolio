@@ -1,3 +1,4 @@
+import Logo from './Logo';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react';
@@ -50,10 +51,8 @@ export default function Footer() {
         <div className="grid gap-14 sm:grid-cols-2 lg:grid-cols-12 lg:gap-10">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-4">
-            <Link to="/" className="inline-block" aria-label={`${settings.salonName} home`}>
-              <span className="font-serif text-3xl font-bold tracking-wider text-[#F7F3EC]">
-                ÉLORA<span className="ml-2 font-light text-[#C5A572]">SALON</span>
-              </span>
+            <Link to="/" className="group inline-block" aria-label={`${settings.salonName} home`}>
+              <Logo size={52} />
             </Link>
             <p className="mt-4 font-serif text-xl italic text-[#D6B988]">{settings.tagline}</p>
             <p className="mt-5 max-w-sm font-sans text-[15px] leading-relaxed text-[#A9A197]">

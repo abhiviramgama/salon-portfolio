@@ -94,8 +94,8 @@ const pillars = [
 
 function Hero() {
   const status = useOpenStatus();
-  const main = galleryItems.find(g => g.id === 'gal-001') ?? galleryItems[0];
-  const inset = galleryItems.find(g => g.id === 'gal-009') ?? galleryItems[1];
+  const main = galleryItems.find(g => g.id === 'gal-006') ?? galleryItems[0];
+  const inset = galleryItems.find(g => g.id === 'gal-007') ?? galleryItems[1];
   const line = (delay: number) => ({
     initial: { y: '110%' },
     animate: { y: 0 },
@@ -708,7 +708,7 @@ function useOpenStatus() {
 function BookingCta() {
   const { settings } = useSalon();
   const status = useOpenStatus();
-  const bg = galleryItems.find(g => g.category === 'interiors');
+  const bg = galleryItems.find(g => g.id === 'gal-006');
 
   return (
     <section className="relative isolate overflow-hidden bg-[#151412]" aria-label="Book appointment">

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PageHeader from '../components/PageHeader';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import { galleryItems, galleryCategories } from '../data';
@@ -23,7 +24,6 @@ function FadeIn({ children, delay = 0, className = '' }: { children: React.React
 export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState<GalleryCategory>('all');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const { ref, inView } = useInView();
 
   const filtered = activeCategory === 'all'
     ? galleryItems
@@ -50,33 +50,7 @@ export default function GalleryPage() {
     <>
       <title>Gallery — ÉLORA SALON | Hair & Aesthetic Transformations</title>
 
-      {/* Header */}
-      <div className="page-header text-center">
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1487412947147-5cebf100d293?auto=format&fit=crop&w=1920&q=60"
-            alt="Élora salon gallery backdrop"
-            className="w-full h-full object-cover opacity-15"
-          />
-          <div className="absolute inset-0 bg-[#151412]/90" />
-        </div>
-        <div className="container-custom relative z-10">
-          <FadeIn>
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <Sparkles size={14} className="text-[#C5A572]" />
-              <p className="font-sans text-[11px] uppercase tracking-[0.25em] text-[#C5A572] font-semibold">
-                Editorial Portfolio
-              </p>
-            </div>
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-[#F7F3EC] mb-5 tracking-tight">
-              Transformations & Moments
-            </h1>
-            <p className="font-sans text-[#A9A197] max-w-xl mx-auto text-base leading-relaxed">
-              A curated photographic record of bespoke colour formulation, precision architecture, bridal artistry, and our private atelier spaces.
-            </p>
-          </FadeIn>
-        </div>
-      </div>
+      <PageHeader crumb="Gallery" title="Transformations &amp; moments" intro="Bridal artistry, luminous colour and precision cuts, photographed in our chairs and private suites." image="https://images.unsplash.com/photo-1487412947147-5cebf100d293?auto=format&fit=crop&w=700&h=900&q=80" imageAlt="A glossy colour transformation" />
 
       <section className="section-padding bg-[#151412]">
         <div className="container-custom">
@@ -99,15 +73,15 @@ export default function GalleryPage() {
 
           {/* Magazine Asymmetrical Grid */}
           <div
-            ref={ref as React.Ref<HTMLDivElement>}
             className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6"
           >
             {filtered.map((item, i) => (
               <motion.div
                 key={item.id}
                 initial={{ opacity: 0, scale: 0.96 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: i * 0.05, duration: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: '0px 0px -40px 0px' }}
+                transition={{ delay: (i % 4) * 0.05, duration: 0.5 }}
                 className="group relative overflow-hidden bg-[#201E1A] border border-[#C5A572]/20 hover:border-[#C5A572]/60 transition-all cursor-pointer break-inside-avoid"
                 onClick={() => openLightbox(i)}
                 role="button"
@@ -124,7 +98,7 @@ export default function GalleryPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#151412]/90 via-[#151412]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                     <div className="flex items-center justify-between text-[#C5A572] mb-1">
-                      <span className="font-sans text-[10px] uppercase tracking-widest font-semibold">
+                      <span className="font-sans text-xs uppercase tracking-widest font-semibold">
                         {item.category}
                       </span>
                       <ZoomIn size={18} />

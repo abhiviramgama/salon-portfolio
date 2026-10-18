@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PageHeader from '../components/PageHeader';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
 import { Instagram, Facebook, Twitter } from '../components/SocialIcons';
@@ -51,21 +52,9 @@ export default function ContactPage() {
 
   return (
     <>
-      <title>Contact — BestSalon | Get in Touch</title>
+      <title>Contact — ÉLORA SALON | Get in Touch</title>
 
-      {/* Header */}
-      <div className="page-header">
-        <div className="absolute inset-0 bg-[#1B1A18]" />
-        <div className="container-custom relative z-10">
-          <FadeIn>
-            <p className="section-label">Reach Out</p>
-            <h1 className="section-heading text-[#F5F0E8] mb-4">Get in Touch</h1>
-            <p className="font-sans text-[#AAA49A] max-w-lg leading-relaxed">
-              We'd love to hear from you. Whether you have a question, want to book, or simply want to say hello — we're here.
-            </p>
-          </FadeIn>
-        </div>
-      </div>
+      <PageHeader crumb="Contact" title="Get in touch" intro="Whether you have a question, want to book, or simply want to say hello, we’re here." image="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=700&h=900&q=80" imageAlt="Stylist at work" />
 
       <section className="section-padding bg-[#111110]">
         <div className="container-custom">
@@ -81,7 +70,7 @@ export default function ContactPage() {
                       <MapPin size={16} className="text-[#C6A66B]" />
                     </div>
                     <div>
-                      <p className="font-sans text-[10px] uppercase tracking-widest text-[#AAA49A] mb-1 font-bold">Address</p>
+                      <p className="font-sans text-xs uppercase tracking-widest text-[#AAA49A] mb-1 font-bold">Address</p>
                       <p className="font-sans text-sm text-[#F5F0E8] leading-relaxed">{contactInfo.address}</p>
                       <a
                         href={contactInfo.mapUrl}
@@ -99,7 +88,7 @@ export default function ContactPage() {
                       <Phone size={16} className="text-[#C6A66B]" />
                     </div>
                     <div>
-                      <p className="font-sans text-[10px] uppercase tracking-widest text-[#AAA49A] mb-1 font-bold">Phone</p>
+                      <p className="font-sans text-xs uppercase tracking-widest text-[#AAA49A] mb-1 font-bold">Phone</p>
                       <a href={`tel:${contactInfo.phone}`} className="font-sans text-sm text-[#F5F0E8] hover:text-[#C6A66B] transition-colors">
                         {contactInfo.phone}
                       </a>
@@ -111,7 +100,7 @@ export default function ContactPage() {
                       <Mail size={16} className="text-[#C6A66B]" />
                     </div>
                     <div>
-                      <p className="font-sans text-[10px] uppercase tracking-widest text-[#AAA49A] mb-1 font-bold">Email</p>
+                      <p className="font-sans text-xs uppercase tracking-widest text-[#AAA49A] mb-1 font-bold">Email</p>
                       <a href={`mailto:${contactInfo.email}`} className="font-sans text-sm text-[#F5F0E8] hover:text-[#C6A66B] transition-colors">
                         {contactInfo.email}
                       </a>

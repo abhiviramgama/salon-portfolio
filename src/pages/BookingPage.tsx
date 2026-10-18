@@ -15,6 +15,7 @@ import {
   Mail,
   FileText
 } from 'lucide-react';
+import PageHeader from '../components/PageHeader';
 import { useSalon } from '../context/SalonContext';
 import { serviceCategories } from '../data';
 import type { Booking, ServiceCategory } from '../types';
@@ -50,7 +51,7 @@ function StepIndicator({ current }: { current: number }) {
                 {isDone ? <Check size={14} strokeWidth={2.5} /> : i + 1}
               </div>
               <span
-                className={`font-sans text-[10px] uppercase tracking-wider mt-2 text-center hidden sm:block ${
+                className={`font-sans text-xs uppercase tracking-wider mt-2 text-center hidden sm:block ${
                   isCurrent ? 'text-[#C5A572] font-semibold' : isDone ? 'text-[#EAE1D5]' : 'text-[#A9A197]/70'
                 }`}
               >
@@ -85,7 +86,7 @@ function Step1({
     <div>
       <div className="flex items-center gap-2 mb-2">
         <Sparkles size={14} className="text-[#C5A572]" />
-        <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
+        <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
           Step 1 of 6
         </span>
       </div>
@@ -102,7 +103,7 @@ function Step1({
           <button
             key={cat.value}
             onClick={() => setFilter(cat.value)}
-            className={`font-sans text-[10px] uppercase tracking-wider px-3 py-1.5 border transition-all ${
+            className={`font-sans text-xs uppercase tracking-wider px-3 py-1.5 border transition-all ${
               filter === cat.value
                 ? 'bg-[#C5A572] text-[#151412] border-[#C5A572] font-semibold'
                 : 'bg-[#201E1A] text-[#A9A197] border-[#C5A572]/20 hover:border-[#C5A572]/40'
@@ -113,7 +114,7 @@ function Step1({
         ))}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 max-h-[460px] overflow-y-auto pr-1">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 max-h-[520px] overflow-y-auto pr-1">
         {filtered.map(service => {
           const isSelected = selectedId === service.id;
           return (
@@ -126,12 +127,12 @@ function Step1({
                   : 'border-[#C5A572]/20 hover:border-[#C5A572]/50 bg-[#201E1A]'
               }`}
             >
-              <div className="w-14 h-14 flex-shrink-0 overflow-hidden border border-[#C5A572]/20">
+              <div className="w-16 h-16 flex-shrink-0 overflow-hidden border border-[#C5A572]/20">
                 <img src={service.image} alt={service.name} className="w-full h-full object-cover" />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between gap-2">
-                  <h3 className="font-serif text-sm font-normal text-[#F7F3EC] leading-tight line-clamp-1">
+                  <h3 className="font-serif text-base font-bold text-[#F7F3EC] leading-tight line-clamp-1">
                     {service.name}
                   </h3>
                   {isSelected && (
@@ -140,14 +141,14 @@ function Step1({
                     </div>
                   )}
                 </div>
-                <p className="font-sans text-xs text-[#A9A197] line-clamp-1 mt-1">
+                <p className="font-sans text-sm text-[#A9A197] line-clamp-1 mt-1">
                   {service.description}
                 </p>
                 <div className="flex items-center gap-3 mt-2 font-sans text-xs">
                   <span className="text-[#A9A197] flex items-center gap-1">
                     <Clock size={11} className="text-[#C5A572]" /> {service.duration}m
                   </span>
-                  <span className="font-serif text-sm font-semibold text-[#C5A572]">
+                  <span className="font-serif text-base font-semibold text-[#C5A572]">
                     ₹{service.price.toLocaleString('en-IN')}
                   </span>
                 </div>
@@ -198,7 +199,7 @@ function Step2({
     <div>
       <div className="flex items-center gap-2 mb-2">
         <Sparkles size={14} className="text-[#C5A572]" />
-        <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
+        <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
           Step 2 of 6
         </span>
       </div>
@@ -257,11 +258,11 @@ function Step2({
                 <div className="flex items-center gap-2">
                   <h3 className="font-serif text-base font-light text-[#F7F3EC] truncate">{stylist.name}</h3>
                   {!stylist.available ? (
-                    <span className="font-sans text-[9px] uppercase tracking-wider text-rose-400 bg-rose-950/40 border border-rose-800/30 px-1.5 py-0.5">
+                    <span className="font-sans text-[11px] uppercase tracking-wider text-rose-400 bg-rose-950/40 border border-rose-800/30 px-1.5 py-0.5">
                       Fully Booked
                     </span>
                   ) : (
-                    <span className="font-sans text-[9px] uppercase tracking-wider text-emerald-400 bg-emerald-950/40 border border-emerald-800/30 px-1.5 py-0.5">
+                    <span className="font-sans text-[11px] uppercase tracking-wider text-emerald-400 bg-emerald-950/40 border border-emerald-800/30 px-1.5 py-0.5">
                       Available
                     </span>
                   )}
@@ -353,7 +354,7 @@ function Step3({
     <div>
       <div className="flex items-center gap-2 mb-2">
         <Sparkles size={14} className="text-[#C5A572]" />
-        <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
+        <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
           Step 3 of 6
         </span>
       </div>
@@ -476,7 +477,7 @@ function Step4({
     <div>
       <div className="flex items-center gap-2 mb-2">
         <Sparkles size={14} className="text-[#C5A572]" />
-        <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
+        <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
           Step 4 of 6
         </span>
       </div>
@@ -587,7 +588,7 @@ function Step5({
     <div>
       <div className="flex items-center gap-2 mb-2">
         <Sparkles size={14} className="text-[#C5A572]" />
-        <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
+        <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
           Step 5 of 6
         </span>
       </div>
@@ -718,7 +719,7 @@ function Step6({
     <div>
       <div className="flex items-center gap-2 mb-2">
         <Sparkles size={14} className="text-[#C5A572]" />
-        <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
+        <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
           Step 6 of 6
         </span>
       </div>
@@ -775,7 +776,7 @@ function Step6({
         <div className="p-4 flex items-center justify-between bg-[#151412]">
           <div>
             <span className="font-sans text-xs font-semibold uppercase tracking-wider text-[#F7F3EC]">Total Demo Fee</span>
-            <div className="font-sans text-[10px] text-[#A9A197]">Payable upon atelier completion</div>
+            <div className="font-sans text-xs text-[#A9A197]">Payable upon atelier completion</div>
           </div>
           <span className="font-serif text-2xl font-light text-[#C5A572]">
             ₹{service?.price.toLocaleString('en-IN')}
@@ -863,28 +864,11 @@ export default function BookingPage() {
     <>
       <title>Book Appointment — ÉLORA SALON | Bespoke Reservation</title>
 
-      {/* Header */}
-      <div className="page-header text-center">
-        <div className="absolute inset-0 bg-[#151412]" />
-        <div className="container-custom relative z-10">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <Sparkles size={14} className="text-[#C5A572]" />
-            <p className="font-sans text-[11px] uppercase tracking-[0.25em] text-[#C5A572] font-semibold">
-              Bespoke Reservation
-            </p>
-          </div>
-          <h1 className="font-serif text-4xl sm:text-5xl font-light text-[#F7F3EC] mb-4">
-            Reserve Your Experience
-          </h1>
-          <p className="font-sans text-[#A9A197] max-w-md mx-auto text-sm leading-relaxed">
-            A seamless multi-step reservation system with live conflict resolution and instant scheduling.
-          </p>
-        </div>
-      </div>
+      <PageHeader crumb="Book" title="Reserve your experience" intro="Choose a treatment, an artist and a time. Live availability, confirmed in minutes." image="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&w=700&h=900&q=80" imageAlt="A silk-finish blowout" />
 
       <section className="section-padding bg-[#151412]">
         <div className="container-custom">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <StepIndicator current={step} />
 
             <div className="bg-[#201E1A] border border-[#C5A572]/20 p-6 sm:p-10 shadow-xl">

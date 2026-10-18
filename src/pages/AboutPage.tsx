@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import PageHeader from '../components/PageHeader';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Heart, Award, Users, Sparkles } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
@@ -21,7 +22,7 @@ function FadeIn({ children, delay = 0, className = '' }: { children: React.React
 const values = [
   { icon: Heart, title: 'Client-First', desc: 'Every decision we make begins and ends with the experience of the person in our chair.' },
   { icon: Award, title: 'Artistry', desc: 'We approach every service as an opportunity to create something truly exceptional.' },
-  { icon: Users, title: 'Community', desc: "BestSalon is more than a salon — it's a place where people feel welcome, seen, and valued." },
+  { icon: Users, title: 'Community', desc: "ÉLORA SALON is more than a salon — it's a place where people feel welcome, seen, and valued." },
   { icon: Sparkles, title: 'Excellence', desc: 'We pursue mastery in everything we do, from technical skill to the warmth of our welcome.' },
 ];
 
@@ -46,30 +47,9 @@ const teamMembers = [
 export default function AboutPage() {
   return (
     <>
-      <title>About Us — BestSalon | Our Story & Philosophy</title>
+      <title>About Us — ÉLORA SALON | Our Story & Philosophy</title>
 
-      {/* Header */}
-      <div className="page-header">
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=1920&q=60"
-            alt=""
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-[#1B1A18]/85" />
-        </div>
-        <div className="container-custom relative z-10">
-          <FadeIn>
-            <p className="section-label">Our Story</p>
-            <h1 className="section-heading text-[#F5F0E8] mb-6 max-w-2xl">
-              Where Personal Style Meets<br />Exceptional Care.
-            </h1>
-            <p className="font-sans text-[#AAA49A] max-w-xl leading-relaxed">
-              BestSalon was born from a simple belief: that every person deserves to feel extraordinary every time they leave our chair.
-            </p>
-          </FadeIn>
-        </div>
-      </div>
+      <PageHeader crumb="About" title="Where personal style meets exceptional care" intro="ÉLORA SALON was born from a simple belief: every person deserves to feel extraordinary each time they leave our chair." image="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=700&h=900&q=80" imageAlt="The ÉLORA styling suite" />
 
       {/* Our Story */}
       <section className="section-padding bg-[#111110]">
@@ -100,9 +80,9 @@ export default function AboutPage() {
                 More Than Beauty.<br />
                 <em className="text-[#C6A66B] italic">A Way of Being.</em>
               </h2>
-              <div className="space-y-4 text-[#AAA49A] font-sans text-sm leading-loose">
+              <div className="space-y-4 text-[#AAA49A] font-sans text-base leading-relaxed">
                 <p>
-                  BestSalon opened its doors with a clear vision: to create a sanctuary where exceptional craftsmanship and genuine human warmth could coexist. We wanted our clients to feel not just well-styled, but genuinely cared for.
+                  ÉLORA SALON opened its doors with a clear vision: to create a sanctuary where exceptional craftsmanship and genuine human warmth could coexist. We wanted our clients to feel not just well-styled, but genuinely cared for.
                 </p>
                 <p>
                   Every stylist in our team was chosen not only for their technical excellence but for their ability to listen, to collaborate, and to create something that feels authentic to the person in front of them.
@@ -113,7 +93,7 @@ export default function AboutPage() {
               </div>
               <div className="mt-8">
                 <Link to="/book" className="btn-gold">
-                  Experience BestSalon <ArrowRight size={16} />
+                  Experience ÉLORA SALON <ArrowRight size={16} />
                 </Link>
               </div>
             </FadeIn>
@@ -184,7 +164,7 @@ export default function AboutPage() {
       <section className="relative h-96 overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1920&q=80"
-          alt="BestSalon atmosphere"
+          alt="ÉLORA SALON atmosphere"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-[#111110]/70 flex items-center justify-center text-center">

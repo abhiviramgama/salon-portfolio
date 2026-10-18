@@ -15,6 +15,7 @@ const GalleryPage = lazy(() => import('./pages/GalleryPage'));
 const BookingPage = lazy(() => import('./pages/BookingPage'));
 const BookingConfirmationPage = lazy(() => import('./pages/BookingConfirmationPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 // Admin Pages
 const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
@@ -55,6 +56,7 @@ export default function App() {
               <Route path="book" element={<BookingPage />} />
               <Route path="booking-confirmation" element={<BookingConfirmationPage />} />
               <Route path="contact" element={<ContactPage />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Route>
 
             {/* Admin Management Hub */}
@@ -68,8 +70,6 @@ export default function App() {
               <Route path="*" element={<Navigate to="/admin" replace />} />
             </Route>
 
-            {/* 404 Catch-all */}
-            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
       </BrowserRouter>

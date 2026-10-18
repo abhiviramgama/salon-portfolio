@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Star, ArrowRight, Clock, Sparkles } from 'lucide-react';
+import PageHeader from '../components/PageHeader';
 import { useSalon } from '../context/SalonContext';
 import { useInView } from '../hooks/useInView';
 
@@ -21,52 +22,23 @@ function FadeIn({ children, delay = 0, className = '' }: { children: React.React
 
 export default function StylistsPage() {
   const { stylists } = useSalon();
-  const { ref, inView } = useInView();
 
   return (
     <>
       <title>Our Stylists — ÉLORA SALON | Master Artisans & Stylists</title>
 
-      {/* Header */}
-      <div className="page-header text-center">
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1522337360826-74a49a5c3380?auto=format&fit=crop&w=1920&q=60"
-            alt="Élora salon atelier"
-            className="w-full h-full object-cover opacity-15"
-          />
-          <div className="absolute inset-0 bg-[#151412]/90" />
-        </div>
-        <div className="container-custom relative z-10">
-          <FadeIn>
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <Sparkles size={14} className="text-[#C5A572]" />
-              <p className="font-sans text-[11px] uppercase tracking-[0.25em] text-[#C5A572] font-semibold">
-                The Creative Collective
-              </p>
-            </div>
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-[#F7F3EC] mb-5 tracking-tight">
-              Master Stylists & Artists
-            </h1>
-            <p className="font-sans text-[#A9A197] max-w-xl mx-auto text-base leading-relaxed">
-              Every cut, colour formulation, and treatment is guided by consummate artisans dedicated to honoring your individual signature.
-            </p>
-            <div className="mt-4 inline-block px-3 py-1 bg-[#201E1A] border border-[#C5A572]/20 text-[11px] font-sans text-[#C5A572]/90">
-              Representative salon team profiles prepared for client demonstration
-            </div>
-          </FadeIn>
-        </div>
-      </div>
+      <PageHeader crumb="Stylists" title="The artists behind your look" intro="Every cut, colour and treatment is guided by specialists dedicated to your individual signature." note="Representative team profiles prepared for client demonstration." image="https://images.unsplash.com/photo-1522337360826-74a49a5c3380?auto=format&fit=crop&w=700&h=900&q=80" imageAlt="A stylist at work" />
 
       <section className="section-padding bg-[#151412]">
         <div className="container-custom">
-          <div ref={ref as React.Ref<HTMLDivElement>} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {stylists.map((stylist, i) => (
               <motion.article
                 key={stylist.id}
                 initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '0px 0px -40px 0px' }}
+                transition={{ delay: (i % 3) * 0.08, duration: 0.6 }}
                 className="group bg-[#201E1A] border border-[#C5A572]/20 hover:border-[#C5A572]/60 transition-all flex flex-col"
               >
                 {/* Photo */}
@@ -81,7 +53,7 @@ export default function StylistsPage() {
 
                   {/* Availability badge */}
                   <div className="absolute top-4 left-4">
-                    <span className={`font-sans text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 ${
+                    <span className={`font-sans text-xs font-semibold tracking-wider uppercase px-2.5 py-1 ${
                       stylist.available
                         ? 'bg-[#151412]/85 text-emerald-400 border border-emerald-500/30 backdrop-blur-sm'
                         : 'bg-[#151412]/85 text-rose-400 border border-rose-500/30 backdrop-blur-sm'
@@ -92,7 +64,7 @@ export default function StylistsPage() {
 
                   {/* Experience badge */}
                   <div className="absolute top-4 right-4 bg-[#151412]/85 border border-[#C5A572]/30 px-2.5 py-1 backdrop-blur-sm">
-                    <span className="font-sans text-[10px] text-[#C5A572] font-semibold">{stylist.experience}y exp.</span>
+                    <span className="font-sans text-xs text-[#C5A572] font-semibold">{stylist.experience}y exp.</span>
                   </div>
 
                   {/* Hover overlay CTA */}
@@ -117,7 +89,7 @@ export default function StylistsPage() {
                       <div className="flex items-center gap-1 flex-shrink-0 mt-1 bg-[#151412] px-2 py-1 border border-[#C5A572]/15">
                         <Star size={11} className="text-[#C5A572] fill-current" />
                         <span className="font-sans text-xs font-semibold text-[#F7F3EC]">{stylist.rating}</span>
-                        <span className="font-sans text-[10px] text-[#A9A197]">({stylist.reviewCount})</span>
+                        <span className="font-sans text-xs text-[#A9A197]">({stylist.reviewCount})</span>
                       </div>
                     </div>
 
@@ -134,7 +106,7 @@ export default function StylistsPage() {
                     {/* Specializations */}
                     <div className="flex flex-wrap gap-1.5 mb-6">
                       {stylist.specializations.map(spec => (
-                        <span key={spec} className="font-sans text-[10px] uppercase tracking-wider text-[#A9A197] bg-[#151412] border border-[#C5A572]/15 px-2 py-0.5">
+                        <span key={spec} className="font-sans text-xs uppercase tracking-wider text-[#A9A197] bg-[#151412] border border-[#C5A572]/15 px-2 py-0.5">
                           {spec}
                         </span>
                       ))}
@@ -160,7 +132,7 @@ export default function StylistsPage() {
       <section className="bg-[#201E1A] border-t border-[#C5A572]/20 py-20">
         <div className="container-custom text-center">
           <FadeIn>
-            <p className="font-sans text-[10px] uppercase tracking-[0.25em] text-[#C5A572] mb-3 font-semibold">
+            <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#C5A572] mb-3 font-semibold">
               The ÉLORA Standard
             </p>
             <h2 className="font-serif text-3xl sm:text-4xl font-light text-[#F7F3EC] mb-5">

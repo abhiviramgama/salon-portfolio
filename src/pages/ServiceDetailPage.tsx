@@ -70,7 +70,7 @@ export default function ServiceDetailPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#151412]/80 lg:from-transparent lg:to-[#151412] to-[#151412]" />
             <div className="absolute top-6 left-6">
-              <span className="font-sans text-[10px] uppercase tracking-widest px-3 py-1.5 bg-[#151412]/85 text-[#C5A572] border border-[#C5A572]/30 backdrop-blur-sm font-semibold">
+              <span className="font-sans text-xs uppercase tracking-widest px-3 py-1.5 bg-[#151412]/85 text-[#C5A572] border border-[#C5A572]/30 backdrop-blur-sm font-semibold">
                 {categoryLabel}
               </span>
             </div>
@@ -80,7 +80,7 @@ export default function ServiceDetailPage() {
             <FadeIn className="max-w-xl">
               <div className="flex items-center gap-2 mb-3">
                 <Sparkles size={14} className="text-[#C5A572]" />
-                <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
+                <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
                   Élora Signature Atelier
                 </span>
               </div>
@@ -93,7 +93,7 @@ export default function ServiceDetailPage() {
 
               <div className="flex flex-wrap items-center gap-8 mb-8 py-6 border-y border-[#C5A572]/15">
                 <div>
-                  <div className="font-sans text-[10px] uppercase tracking-widest text-[#A9A197] mb-1">
+                  <div className="font-sans text-xs uppercase tracking-widest text-[#A9A197] mb-1">
                     Demo Pricing (INR)
                   </div>
                   <div className="font-serif text-3xl font-light text-[#C5A572]">
@@ -102,7 +102,7 @@ export default function ServiceDetailPage() {
                 </div>
                 <div className="w-px h-10 bg-[#C5A572]/20 hidden sm:block" />
                 <div>
-                  <div className="font-sans text-[10px] uppercase tracking-widest text-[#A9A197] mb-1">
+                  <div className="font-sans text-xs uppercase tracking-widest text-[#A9A197] mb-1">
                     Estimated Duration
                   </div>
                   <div className="flex items-center gap-2 text-[#F7F3EC]">
@@ -112,7 +112,7 @@ export default function ServiceDetailPage() {
                 </div>
                 <div className="w-px h-10 bg-[#C5A572]/20 hidden sm:block" />
                 <div>
-                  <div className="font-sans text-[10px] uppercase tracking-widest text-[#A9A197] mb-1">
+                  <div className="font-sans text-xs uppercase tracking-widest text-[#A9A197] mb-1">
                     Status
                   </div>
                   <div className="flex items-center gap-1.5 text-xs font-sans text-emerald-400">
@@ -142,7 +142,7 @@ export default function ServiceDetailPage() {
             <FadeIn>
               <div className="flex items-center gap-2 mb-3">
                 <ShieldCheck size={16} className="text-[#C5A572]" />
-                <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
+                <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
                   Standard of Care
                 </span>
               </div>
@@ -169,7 +169,7 @@ export default function ServiceDetailPage() {
               <FadeIn delay={0.15}>
                 <div className="flex items-center gap-2 mb-3">
                   <Star size={16} className="text-[#C5A572]" />
-                  <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
+                  <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
                     Master Craftsmen
                   </span>
                 </div>
@@ -194,7 +194,7 @@ export default function ServiceDetailPage() {
                       </div>
                       <Link
                         to={`/book?service=${service.id}&stylist=${stylist.id}`}
-                        className="btn-outline-gold !py-2 !px-4 !text-[10px] whitespace-nowrap"
+                        className="btn-outline-gold !py-2 !px-4 !text-xs whitespace-nowrap"
                       >
                         Book With {stylist.name.split(' ')[0]}
                       </Link>
@@ -212,7 +212,7 @@ export default function ServiceDetailPage() {
         <section className="section-padding bg-[#151412] border-t border-[#C5A572]/15">
           <div className="container-custom">
             <FadeIn className="mb-12 text-center">
-              <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#C5A572] mb-2 font-semibold">
+              <p className="font-sans text-xs uppercase tracking-[0.2em] text-[#C5A572] mb-2 font-semibold">
                 Complementary Experiences
               </p>
               <h2 className="font-serif text-2xl sm:text-3xl font-light text-[#F7F3EC]">

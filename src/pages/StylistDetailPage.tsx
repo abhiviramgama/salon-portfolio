@@ -56,7 +56,7 @@ export default function StylistDetailPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#151412] lg:from-transparent lg:to-[#151412] to-transparent opacity-80" />
             <div className="absolute top-6 left-6">
-              <span className={`font-sans text-[10px] font-semibold tracking-wider uppercase px-3 py-1.5 border backdrop-blur-sm ${
+              <span className={`font-sans text-xs font-semibold tracking-wider uppercase px-3 py-1.5 border backdrop-blur-sm ${
                 stylist.available
                   ? 'text-emerald-400 border-emerald-500/30 bg-[#151412]/85'
                   : 'text-rose-400 border-rose-500/30 bg-[#151412]/85'
@@ -70,7 +70,7 @@ export default function StylistDetailPage() {
             <FadeIn className="max-w-xl">
               <div className="flex items-center gap-2 mb-2">
                 <Sparkles size={14} className="text-[#C5A572]" />
-                <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
+                <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#C5A572] font-semibold">
                   Élora Senior Atelier
                 </span>
               </div>
@@ -83,15 +83,15 @@ export default function StylistDetailPage() {
                     <Star size={14} className="text-[#C5A572] fill-current" />
                     <span className="font-serif text-2xl font-light text-[#C5A572]">{stylist.rating}</span>
                   </div>
-                  <div className="font-sans text-[10px] text-[#A9A197] mt-0.5 uppercase tracking-wider">{stylist.reviewCount} Client Reviews</div>
+                  <div className="font-sans text-xs text-[#A9A197] mt-0.5 uppercase tracking-wider">{stylist.reviewCount} Client Reviews</div>
                 </div>
                 <div className="border-x border-[#C5A572]/15 text-center">
                   <div className="font-serif text-2xl font-light text-[#C5A572]">{stylist.experience}+</div>
-                  <div className="font-sans text-[10px] text-[#A9A197] mt-0.5 uppercase tracking-wider">Years Experience</div>
+                  <div className="font-sans text-xs text-[#A9A197] mt-0.5 uppercase tracking-wider">Years Experience</div>
                 </div>
                 <div className="text-center">
                   <div className="font-serif text-2xl font-light text-[#C5A572]">{stylistServices.length}</div>
-                  <div className="font-sans text-[10px] text-[#A9A197] mt-0.5 uppercase tracking-wider">Services Offered</div>
+                  <div className="font-sans text-xs text-[#A9A197] mt-0.5 uppercase tracking-wider">Services Offered</div>
                 </div>
               </div>
 
@@ -109,7 +109,7 @@ export default function StylistDetailPage() {
               {/* Specializations */}
               <div className="flex flex-wrap gap-2 mb-8">
                 {stylist.specializations.map(spec => (
-                  <span key={spec} className="font-sans text-[10px] uppercase tracking-wider text-[#A9A197] bg-[#201E1A] border border-[#C5A572]/20 px-3 py-1">
+                  <span key={spec} className="font-sans text-xs uppercase tracking-wider text-[#A9A197] bg-[#201E1A] border border-[#C5A572]/20 px-3 py-1">
                     {spec}
                   </span>
                 ))}
@@ -133,7 +133,7 @@ export default function StylistDetailPage() {
         <section className="section-padding bg-[#201E1A] border-t border-[#C5A572]/15">
           <div className="container-custom">
             <FadeIn className="mb-10 text-center">
-              <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#C5A572] mb-2 font-semibold">
+              <p className="font-sans text-xs uppercase tracking-[0.2em] text-[#C5A572] mb-2 font-semibold">
                 Expertise & Masteries
               </p>
               <h2 className="font-serif text-2xl sm:text-3xl font-light text-[#F7F3EC]">

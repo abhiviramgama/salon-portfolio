@@ -1,3 +1,4 @@
+import Logo from './Logo';
 import { useState, useEffect, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -58,13 +59,8 @@ export default function Navbar() {
         <div className="container-custom">
           <nav className="flex items-center justify-between">
             {/* Logo: ÉLORA */}
-            <Link to="/" className="flex items-center gap-2 group" aria-label="ÉLORA Salon home">
-              <span className="font-serif text-2xl sm:text-3xl font-bold text-[#F7F3EC] tracking-[0.12em] uppercase leading-none group-hover:text-[#C5A572] transition-colors">
-                ÉLORA
-              </span>
-              <span className="text-[10px] font-sans tracking-[0.25em] text-[#C5A572] uppercase font-light border-l border-[#C5A572]/40 pl-2 leading-none hidden sm:inline">
-                SALON
-              </span>
+            <Link to="/" className="group flex items-center" aria-label="ÉLORA Salon home">
+              <Logo size={42} />
             </Link>
 
             {/* Desktop Navigation */}
@@ -176,9 +172,10 @@ export default function Navbar() {
                   <Link
                     to="/"
                     onClick={() => setMobileOpen(false)}
-                    className="font-serif text-xl font-bold text-[#F7F3EC] tracking-wider"
+                    className="group flex items-center"
+                    aria-label="ÉLORA Salon home"
                   >
-                    ÉLORA <span className="text-[#C5A572] font-light">SALON</span>
+                    <Logo size={38} />
                   </Link>
                   <button
                     onClick={() => setMobileOpen(false)}
